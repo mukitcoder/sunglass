@@ -10,11 +10,13 @@ import {
 } from "react-bootstrap";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import registration from '../../../images/registration.jpg'
+import registration from "../../../images/registration.jpg";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
-  const {registerUser,user, isLoading, authError} = useAuth()
+  const { registerUser, user, isLoading, authError } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -29,72 +31,74 @@ const Register = () => {
       alert("Your Password Didn't Match !!! Please Check");
       return;
     }
-    registerUser(loginData.email, loginData.password)
+    registerUser(loginData.email, loginData.password, location, history);
     e.preventDefault();
   };
 
   return (
     <Container>
-   
       <Row className="text-center">
         <Col md={6}>
-        <h3 className="display-5 my-3 fw-bolder">Please Register</h3>
-        <Form onSubmit={handleLoginSubmit}>
-        <FloatingLabel
-          controlId="floatingInput"
-          label="Email address"
-          className="mb-3"
-        >
-          <Form.Control
-            type="email"
-            placeholder="name@example.com"
-            name="email"
-            onBlur={handleOnBlur}
-          />
-        </FloatingLabel>
+          <h3 className="display-5 my-3 fw-bolder">Please Register</h3>
+          <Form onSubmit={handleLoginSubmit}>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Email address"
+              className="mb-3"
+            >
+              <Form.Control
+                type="email"
+                placeholder="name@example.com"
+                name="email"
+                onBlur={handleOnBlur}
+              />
+            </FloatingLabel>
 
-        <FloatingLabel controlId="floatingPassword" label="Password">
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            name="password"
-            className="mb-3"
-            onBlur={handleOnBlur}
-          />
-        </FloatingLabel>
-        <FloatingLabel controlId="floatingPassword" label="Confirm Password">
-          <Form.Control
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            className="mb-3"
-            onBlur={handleOnBlur}
-          />
-        </FloatingLabel>
-        <NavLink to="/login">
-                <h6 className="text-danger fs-4">
-                  * Already have an account? Please login
-                </h6>
-              </NavLink>
-  
-              <Button
-                variant="warning"
-                type="submit"
-                className="w-100 my-2 fw-bolder"
-              >
-                Register
-              </Button>
-      </Form>
-      {isLoading && <Spinner animation="grow" />}
-      {user?.email && <h3> User Logged In SuccessFully!</h3>}
+            <FloatingLabel controlId="floatingPassword" label="Password">
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                className="mb-3"
+                onBlur={handleOnBlur}
+              />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingPassword"
+              label="Confirm Password"
+            >
+              <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                name="password2"
+                className="mb-3"
+                onBlur={handleOnBlur}
+              />
+            </FloatingLabel>
+            <NavLink to="/login">
+              <h6 className="text-danger fs-4">
+                * Already have an account? Please login
+              </h6>
+            </NavLink>
 
-      {authError && { authError }}
+            <Button
+              variant="warning"
+              type="submit"
+              className="w-100 my-2 fw-bolder"
+            >
+              Register
+            </Button>
+          </Form>
+          {isLoading && (
+            <Spinner className="d-flex mx-auto mb-3" animation="grow" />
+          )}
+          {user?.email && <h3> User Logged In SuccessFully!</h3>}
+
+          {authError && <h3>{authError}</h3>}
         </Col>
         <Col md={6}>
-
-          <img className="img-fluid my-2 rounded-3" src= {registration} alt="" />
+          <img className="img-fluid my-2 rounded-3" src={registration} alt="" />
         </Col>
-
       </Row>
     </Container>
   );

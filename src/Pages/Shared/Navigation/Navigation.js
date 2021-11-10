@@ -30,9 +30,15 @@ const Navigation = () => {
             </NavLink>
             <NavLink
               className="text-white text-decoration-none fw-bold me-3"
-              to="/services"
+              to="/product"
             >
               Explore
+            </NavLink>
+            <NavLink
+              className="text-white text-decoration-none fw-bold me-3"
+              to="/dashboard"
+            >
+              Dashboard
             </NavLink>
             
             <div className="">

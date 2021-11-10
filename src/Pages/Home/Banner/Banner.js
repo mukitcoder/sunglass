@@ -9,7 +9,7 @@ const Banner = () => {
   return (
     <Carousel className="">
       <Carousel.Item>
-        <img className="d-block w-100" src={slide1} alt="First slide" />
+        <img className="d-block w-100 img-fluid" src={slide1} alt="First slide" />
         <Carousel.Caption>
           <div className="text-danger">
             <h3 className="">THE BRAINCHILD OF RAMIRO PAULINO FERREIRA</h3>

@@ -10,10 +10,13 @@ import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
-import Service from './Pages/Home/Service/Service';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import Products from './Pages/Home/Products/Products';
+import Product from './Pages/Home/Product/Product';
+import Purchase from './Pages/Purchase/Purchase';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -27,9 +30,15 @@ function App() {
           <Route path="/home">
             <Home/>
           </Route>
-          <Route path="/services">
-            <Service/>
+          <Route path="/products">
+            <Products/>
           </Route>
+          <Route path="/product">
+            <Product/>
+          </Route>
+          <PrivateRoute path="/purchase">
+            <Purchase/>
+          </PrivateRoute>
           <Route path="/login">
             <Login/>
           </Route>

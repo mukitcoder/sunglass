@@ -40,6 +40,48 @@
         "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
         "img": "https://i.ibb.co/yp498GW/sunglass-6.jpg",
         "price":"20"
+    },
+    {
+        "key": "7",
+        "name": "Burberry Eyeglasses Look",
+        "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
+        "img": "https://i.ibb.co/CzCZPWb/sunglass-1.jpg",
+        "price":"50"
+    },
+    {
+        "key": "8",
+        "name": "Full Rim Eyeglasses",
+        "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
+        "img": "https://i.ibb.co/SvfhccW/sunglass-2.jpg",
+        "price":"40"
+    },
+    {
+        "key": "9",
+        "name": "Armani Exchange AX4029",
+        "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
+        "img": "https://i.ibb.co/5K886p5/sunglass-3.jpg",
+        "price":"70"
+    },
+    {
+        "key": "10",
+        "name": "Oakley Crosslink Eyeglasses",
+        "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
+        "img": "https://i.ibb.co/XLxxYQc/sunglass-4.jpg",
+        "price":"30"
+    },
+    {
+        "key": "11",
+        "name": "Quisque In Arcu",
+        "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
+        "img": "https://i.ibb.co/wYsFv0t/sunglass-5.jpg",
+        "price":"80"
+    },
+    {
+        "key": "12",
+        "name": "Quisqur",
+        "description": "Adventure-ready Sunglass Hut-exclusive frames. Where sustainability meets performance.",
+        "img": "https://i.ibb.co/yp498GW/sunglass-6.jpg",
+        "price":"20"
     }
 ]
 
