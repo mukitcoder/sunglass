@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import Banner from "../Banner/Banner";
-import Product from "../Product/Product";
 import Products from "../Products/Products";
 
 const Home = () => {

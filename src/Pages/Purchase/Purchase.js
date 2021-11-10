@@ -1,30 +1,37 @@
-import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React from "react";
+import { Modal, Button, Form, FloatingLabel } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
+import PrivateRoute from "../Login/PrivateRoute/PrivateRoute";
 
-const Purchase = ({handlePurchaseClose, showPurchase,pd, handlePurchaseShow}) => {
-const {name} = pd  
+const Purchase = ({
+  handlePurchaseClose,
+  showPurchase,
+  pd
+}) => {
+  const { name, price } = pd;
+  const {user} = useAuth()
 
   return (
-    <div>
-      {/* <Button variant="primary" onClick={handlePurchaseShow}>
-        Launch demo modal
-      </Button> */}
-
+    
       <Modal show={showPurchase} onHide={handlePurchaseClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>{name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handlePurchaseClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handlePurchaseClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>
+        <div className="text-center">
+          <Modal.Title className="fw-bolder fs-3 bg-info rounded-pill py-2">Purchase Page</Modal.Title>
+          <Modal.Title className="my-3">{name}</Modal.Title>
+          </div>
+          <Form>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Email address"
+              className="mb-3"
+            >
+              <Form.Control type="email" placeholder="Email" value={user.email}/>
+            </FloatingLabel>
+          </Form>
+        </Modal.Body>
       </Modal>
-    </div>
   );
 };
 

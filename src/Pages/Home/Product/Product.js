@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Row } from "react-bootstrap";
 import Products from "../Products/Products";
 
 const Product = () => {
