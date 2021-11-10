@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import registration from '../../../images/registration.jpg'
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -33,9 +34,12 @@ const Register = () => {
   };
 
   return (
-    <>
-    <h3>Register</h3>
-      <Form onSubmit={handleLoginSubmit}>
+    <Container>
+   
+      <Row className="text-center">
+        <Col md={6}>
+        <h3 className="display-5 my-3 fw-bolder">Please Register</h3>
+        <Form onSubmit={handleLoginSubmit}>
         <FloatingLabel
           controlId="floatingInput"
           label="Email address"
@@ -54,26 +58,29 @@ const Register = () => {
             type="password"
             placeholder="Password"
             name="password"
+            className="mb-3"
             onBlur={handleOnBlur}
           />
         </FloatingLabel>
-        <FloatingLabel controlId="floatingPassword" label="Password">
+        <FloatingLabel controlId="floatingPassword" label="Confirm Password">
           <Form.Control
             type="password"
-            placeholder="Password"
+            placeholder="Confirm Password"
             name="password2"
+            className="mb-3"
             onBlur={handleOnBlur}
           />
         </FloatingLabel>
         <NavLink to="/login">
-                <Button variant="info">
-                  * Already have an account? please login
-                </Button>
+                <h6 className="text-danger fs-4">
+                  * Already have an account? Please login
+                </h6>
               </NavLink>
   
               <Button
                 variant="warning"
                 type="submit"
+                className="w-100 my-2 fw-bolder"
               >
                 Register
               </Button>
@@ -82,7 +89,14 @@ const Register = () => {
       {user?.email && <h3> User Logged In SuccessFully!</h3>}
 
       {authError && { authError }}
-    </>
+        </Col>
+        <Col md={6}>
+
+          <img className="img-fluid my-2 rounded-3" src= {registration} alt="" />
+        </Col>
+
+      </Row>
+    </Container>
   );
 };
 

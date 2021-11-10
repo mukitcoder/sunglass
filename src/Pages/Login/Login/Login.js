@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import login from '../../../images/login.jpg'
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -36,8 +37,10 @@ const Login = () => {
   };
 
   return (
-    <>
-    <h3>Login</h3>
+    <Container>
+    <Row className="text-center">
+      <Col md={6} className="mt-5">
+      <h3 className="display-5 my-3 fw-bolder">Login</h3>
       <Form onSubmit={handleLoginSubmit}>
         <FloatingLabel
           controlId="floatingInput"
@@ -57,12 +60,20 @@ const Login = () => {
             type="password"
             placeholder="Password"
             name="password"
+            className="mb-3"
             onBlur={handleOnBlur}
           />
         </FloatingLabel>
+        <NavLink to="/register">
+              <h6 className="text-danger fs-4">
+                * New user? please register
+              </h6>
+            </NavLink>
+
         <Button
               variant="info"
               type="submit"
+              className="w-100 my-4 fw-bolder"
             >
               Login
             </Button>
@@ -75,7 +86,12 @@ const Login = () => {
       <Button variant="primary" onClick={handleGoogleSignIn}>
         Sign In Using Google
       </Button>
-    </>
+      </Col>
+      <Col md={6}>
+      <img className="img-fluid rounded-3" src= {login} alt="" />
+      </Col>
+    </Row>
+    </Container>
   );
 };
 
