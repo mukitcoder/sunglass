@@ -32,9 +32,9 @@ const Orders = () => {
         </thead>
         <tbody>
           {
-              myOrders.map(order=>(
+              myOrders.map((order, index)=>(
                 <tr key={order._id}>
-                <td>1</td>
+                <td>{index+1} </td>
                 <td>{order.customerName}</td>
                 <td>{order.email}</td>
                 <td>{order.phone}</td>

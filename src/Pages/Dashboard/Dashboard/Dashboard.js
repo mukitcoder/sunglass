@@ -65,15 +65,6 @@ const Dashboard = () => {
         </Offcanvas.Body>
       </Offcanvas>
 
-      {/* <Container>
-        <Row md={1}>
-          <Col className="text-center">
-            <h1>Hello From Dashboard</h1>
-            <Orders></Orders>
-          </Col>
-        </Row>
-      </Container> */}
-
 <Switch>
         <Route exact path={path}>
           <DashboardHome/>
