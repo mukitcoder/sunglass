@@ -15,7 +15,6 @@ import registration from "../../../images/registration.jpg";
 const Register = () => {
   const [loginData, setLoginData] = useState({});
   const { registerUser, user, isLoading, authError } = useAuth();
-  const location = useLocation();
   const history = useHistory();
 
   const handleOnBlur = (e) => {
@@ -31,7 +30,7 @@ const Register = () => {
       alert("Your Password Didn't Match !!! Please Check");
       return;
     }
-    registerUser(loginData.email, loginData.password, location, history);
+    registerUser(loginData.email, loginData.password,loginData.name, history);
     e.preventDefault();
   };
 
@@ -43,6 +42,18 @@ const Register = () => {
           <Form onSubmit={handleLoginSubmit}>
             <FloatingLabel
               controlId="floatingInput"
+              label="Your Name"
+              className="mb-3"
+            >
+              <Form.Control
+                placeholder="Name"
+                name="name"
+                required
+                onBlur={handleOnBlur}
+              />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
               label="Email address"
               className="mb-3"
             >
@@ -50,6 +61,7 @@ const Register = () => {
                 type="email"
                 placeholder="name@example.com"
                 name="email"
+                required
                 onBlur={handleOnBlur}
               />
             </FloatingLabel>
@@ -72,6 +84,7 @@ const Register = () => {
                 placeholder="Confirm Password"
                 name="password2"
                 className="mb-3"
+                required
                 onBlur={handleOnBlur}
               />
             </FloatingLabel>

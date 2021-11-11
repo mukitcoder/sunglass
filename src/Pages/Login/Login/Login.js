@@ -51,6 +51,7 @@ const Login = () => {
                 type="email"
                 placeholder="name@example.com"
                 name="email"
+                required
                 onBlur={handleOnBlur}
               />
             </FloatingLabel>
@@ -61,6 +62,7 @@ const Login = () => {
                 placeholder="Password"
                 name="password"
                 className="mb-3"
+                required
                 onBlur={handleOnBlur}
               />
             </FloatingLabel>
