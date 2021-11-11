@@ -7,14 +7,25 @@ import {
   Row,
   ListGroup,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Orders from "../Orders/Orders";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+  } from "react-router-dom";
+import AddProduct from "../AddProduct/AddProduct";
+import DashboardHome from "../DashboardHome/DashboardHome";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  let { path, url } = useRouteMatch();
   return (
     <div>
       <Button variant="primary" onClick={handleShow}>
@@ -32,13 +43,13 @@ const Dashboard = () => {
               <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link2">
-              <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}`}>Dashboard</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link3">
-              <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/makeAdmin`}>Make Admin</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link4">
-              <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Add Product</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link5">
               <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
@@ -54,14 +65,26 @@ const Dashboard = () => {
         </Offcanvas.Body>
       </Offcanvas>
 
-      <Container>
+      {/* <Container>
         <Row md={1}>
           <Col className="text-center">
             <h1>Hello From Dashboard</h1>
             <Orders></Orders>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
+
+<Switch>
+        <Route exact path={path}>
+          <DashboardHome/>
+        </Route>
+        <Route path={`${path}/makeAdmin`}>
+          <MakeAdmin/>
+        </Route>
+        <Route path={`${path}/addProduct`}>
+          <AddProduct/>
+        </Route>
+      </Switch>
     </div>
   );
 };
