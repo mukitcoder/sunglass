@@ -105,7 +105,7 @@ const Register = () => {
           {isLoading && (
             <Spinner className="d-flex mx-auto mb-3" animation="grow" />
           )}
-          {user?.email && <h3> User Logged In SuccessFully!</h3>}
+          {user?.email && <h3> User Created SuccessFully!</h3>}
 
           {authError && <h3>{authError}</h3>}
         </Col>

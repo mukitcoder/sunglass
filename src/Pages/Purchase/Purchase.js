@@ -5,11 +5,12 @@ import useAuth from "../../hooks/useAuth";
 const Purchase = ({
   handlePurchaseClose,
   showPurchase,
-  pd
+  pd,
+  setPurchaseSuccess
 }) => {
   const { name, price } = pd;
   const {user} = useAuth()
-  const initialInfo = {customerName:user.displayName, email:user.email, phone:'', address:'', date:'', price: ''}
+  const initialInfo = {customerName:user.displayName, email:user.email, phone:'', address:'', date:''}
 const [purchaseInfo, setPurchaseInfo] = useState({initialInfo})
 
 
@@ -26,9 +27,20 @@ const handleOnBlur = e =>{
       sunglassName: name,
       price: price
     }
-    console.log(purchases);
-
-handlePurchaseClose()
+    fetch(`http://localhost:5000/purchase`, {
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(purchases)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.insertedId){
+        handlePurchaseClose()
+        setPurchaseSuccess(true)
+      }
+    })
     e.preventDefault()
   }
 
@@ -40,7 +52,7 @@ handlePurchaseClose()
         <Modal.Body>
         <div className="text-center">
           <Modal.Title className="fw-bolder fs-3 bg-info rounded-pill py-2">Purchase Page</Modal.Title>
-          <Modal.Title className="my-3">{name}</Modal.Title>
+          <Modal.Title className="my-3">{name} /<span className="text-secondary">${price}</span> </Modal.Title>
           </div>
           <Form onSubmit={handlePurchaseSubmit}>
           <FloatingLabel
@@ -81,14 +93,6 @@ handlePurchaseClose()
               className="mb-3"
             >
               <Form.Control placeholder="Date" type="date" name="date" onBlur={handleOnBlur}/>
-            </FloatingLabel>
-
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Sunglass Price $"
-              className="mb-3"
-            >
-              <Form.Control placeholder="Price" defaultValue={price} disabled/>
             </FloatingLabel>
 
             <Button className="w-100" type="submit">Submit</Button>

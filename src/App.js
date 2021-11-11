@@ -17,6 +17,7 @@ import Products from './Pages/Home/Products/Products';
 import Product from './Pages/Home/Product/Product';
 import Purchase from './Pages/Purchase/Purchase';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -33,11 +34,14 @@ function App() {
           <Route path="/products">
             <Products/>
           </Route>
-          <PrivateRoute path="/product">
+          <Route path="/product">
             <Product/>
-          </PrivateRoute>
+          </Route>
           <PrivateRoute path="/purchase">
             <Purchase/>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard">
+            <Dashboard/>
           </PrivateRoute>
           <Route path="/login">
             <Login/>

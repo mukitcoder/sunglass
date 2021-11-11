@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import PrivateRoute from "../../Login/PrivateRoute/PrivateRoute";
 import Purchase from "../../Purchase/Purchase";
 
-const Products = ({ pd }) => {
+const Products = ({ pd, setPurchaseSuccess }) => {
   const { name, price, description, img } = pd;
   const {user} = useAuth()
 
@@ -46,6 +45,7 @@ const Products = ({ pd }) => {
         pd={pd}
         handlePurchaseClose={handlePurchaseClose}
         showPurchase={showPurchase}
+        setPurchaseSuccess={setPurchaseSuccess}
       ></Purchase>
     </div>
   );
