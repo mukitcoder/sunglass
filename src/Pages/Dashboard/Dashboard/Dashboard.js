@@ -16,6 +16,7 @@ import AddProduct from "../AddProduct/AddProduct";
 import AddReview from "../AddReview/AddReview";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import Pay from "../Pay/Pay";
 
@@ -65,7 +66,7 @@ const Dashboard = () => {
               <Link className="text-black text-decoration-none fw-bold" to={`${url}/manageProducts`}>Manage Product</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link8">
-              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Manage All Orders</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/manageAllOrders`}>Manage All Orders</Link>
             </ListGroup.Item>
               </div>
             }
@@ -87,9 +88,12 @@ const Dashboard = () => {
         <AdminRoute path={`${path}/manageProducts`}>
           <ManageProducts/>
         </AdminRoute>
-        <AdminRoute path={`${path}/addReview`}>
-          <AddReview/>
+        <AdminRoute path={`${path}/manageAllOrders`}>
+          <ManageAllOrders/>
         </AdminRoute>
+        <Route path={`${path}/addReview`}>
+          <AddReview/>
+        </Route>
         <Route path={`${path}/payment`}>
           <Pay/>
         </Route>

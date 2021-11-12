@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import test from "../../../images/registration.jpg";
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [purchaseSuccess, setPurchaseSuccess] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/allReviews`)
       .then((res) => res.json())
