@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import {
   Offcanvas,
   Button,
-  Container,
-  Col,
-  Row,
   ListGroup,
 } from "react-bootstrap";
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
   } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -20,6 +15,7 @@ import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AddProduct from "../AddProduct/AddProduct";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageProducts from "../ManageProducts/ManageProducts";
 import Pay from "../Pay/Pay";
 
 const Dashboard = () => {
@@ -65,7 +61,7 @@ const Dashboard = () => {
               <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Add Product</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link7">
-              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Manage Product</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/manageProducts`}>Manage Product</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link8">
               <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Manage All Orders</Link>
@@ -86,6 +82,9 @@ const Dashboard = () => {
         </AdminRoute>
         <AdminRoute path={`${path}/addProduct`}>
           <AddProduct/>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageProducts`}>
+          <ManageProducts/>
         </AdminRoute>
         <Route path={`${path}/payment`}>
           <Pay/>

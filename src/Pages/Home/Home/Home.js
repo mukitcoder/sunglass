@@ -21,7 +21,7 @@ const Home = () => {
           {purchaseSuccess && <h3> Sunglass Booked SuccessFully!</h3>}
         </div>
         <Row xs={1} md={3} className="g-4">
-          {products.map((pd) => <Products key={pd.key} pd={pd} setPurchaseSuccess={setPurchaseSuccess}></Products>).slice(0, 6)}
+          {products.map((pd) => <Products key={pd._id} pd={pd} setPurchaseSuccess={setPurchaseSuccess}></Products>).slice(0, 6)}
         </Row>
       </div>
     </div>

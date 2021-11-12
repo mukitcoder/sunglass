@@ -8,7 +8,7 @@ import {
   FloatingLabel,
   Form,
 } from "react-bootstrap";
-import { NavLink, useLocation, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import registration from "../../../images/registration.jpg";
 

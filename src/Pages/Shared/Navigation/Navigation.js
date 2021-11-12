@@ -21,7 +21,7 @@ const Navigation = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto">
+          <Nav className="mx-auto d-flex align-items-center">
             <NavLink
               className="text-white text-decoration-none fw-bold me-3"
               to="/home"

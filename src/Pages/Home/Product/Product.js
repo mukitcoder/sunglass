@@ -21,7 +21,7 @@ const Product = () => {
 
       <Row xs={1} md={3} className="g-4">
        {
-         products.map(pd=>(<Products key={pd.key} pd={pd} setPurchaseSuccess={setPurchaseSuccess}></Products>))
+         products.map(pd=>(<Products key={pd._id} pd={pd} setPurchaseSuccess={setPurchaseSuccess}></Products>))
        }
       </Row>
     </div>

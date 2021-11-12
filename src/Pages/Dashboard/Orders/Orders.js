@@ -11,12 +11,12 @@ const Orders = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
-  }, []);
+  }, [user.email]);
   return (
     <div>
-      <h2>My Orders: {myOrders.length} </h2>
+      <h2>My Total Orders: {myOrders.length} </h2>
 
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>#</th>
