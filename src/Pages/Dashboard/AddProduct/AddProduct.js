@@ -3,7 +3,7 @@ import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     fetch(`http://localhost:5000/addProducts`, {
       method:'POST',
@@ -15,6 +15,8 @@ const AddProduct = () => {
     .then(res=>res.json())
     .then(result=>console.log(result))
     console.log(data);
+    reset()
+    alert('Successfully Added ')
   };
   return (
     <Container className="d-flex mx-auto justify-content-center">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 
 const Orders = () => {
@@ -12,6 +12,21 @@ const Orders = () => {
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [user.email]);
+
+  const handleDelete = (id)=>{
+    const url = `http://localhost:5000/purchase/${id}`
+    fetch(url, {
+      method:'DELETE'
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.deletedCount){
+        alert('Are You Sure?')
+        const remaining = myOrders.filter(order=>order._id !== id)
+        setMyOrders(remaining)
+      }
+    })
+  }
   return (
     <div>
       <h2>My Total Orders: {myOrders.length} </h2>
@@ -42,6 +57,7 @@ const Orders = () => {
                 <td>{order.sunglassName} </td>
                 <td>{order.price}</td>
                 <td>{order.date} </td>
+                <td><Button variant="danger" onClick={()=> handleDelete(order._id) } >Cancel</Button></td>
               </tr>
               ))
           }
