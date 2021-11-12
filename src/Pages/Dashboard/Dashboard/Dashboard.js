@@ -15,13 +15,16 @@ import {
     useParams,
     useRouteMatch
   } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AddProduct from "../AddProduct/AddProduct";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import Pay from "../Pay/Pay";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
-
+  const {admin} = useAuth()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -46,20 +49,29 @@ const Dashboard = () => {
               <Link className="text-black text-decoration-none fw-bold" to={`${url}`}>Dashboard</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link3">
-              <Link className="text-black text-decoration-none fw-bold" to={`${url}/makeAdmin`}>Make Admin</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/payment`}>Pay</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link4">
-              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Add Product</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/makeAdmin`}>Reviews</Link>
             </ListGroup.Item>
-            <ListGroup.Item action href="#link5">
-              <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
+
+            {/* Admin Area */}
+            {
+              admin && <div>
+                <ListGroup.Item action href="#link5">
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/makeAdmin`}>Make Admin</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link6">
-              <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Add Product</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link7">
-              <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Manage Product</Link>
             </ListGroup.Item>
+            <ListGroup.Item action href="#link8">
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addProduct`}>Manage All Orders</Link>
+            </ListGroup.Item>
+              </div>
+            }
           </ListGroup>
 
         </Offcanvas.Body>
@@ -69,11 +81,14 @@ const Dashboard = () => {
         <Route exact path={path}>
           <DashboardHome/>
         </Route>
-        <Route path={`${path}/makeAdmin`}>
+        <AdminRoute path={`${path}/makeAdmin`}>
           <MakeAdmin/>
-        </Route>
-        <Route path={`${path}/addProduct`}>
+        </AdminRoute>
+        <AdminRoute path={`${path}/addProduct`}>
           <AddProduct/>
+        </AdminRoute>
+        <Route path={`${path}/payment`}>
+          <Pay/>
         </Route>
       </Switch>
     </div>

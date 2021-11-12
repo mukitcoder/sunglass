@@ -3,14 +3,16 @@ import { Col, Container, FloatingLabel, Form, Row, Button } from 'react-bootstra
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('')
+    const [success, setSuccess] = useState(false)
 
     const handleOnBlur = e =>{
         setEmail(e.target.value)
     }
 
     const handleAdminSubmit = e =>{
+     
         const user = {email}
-        fetch(`localhost:5000/users/admin`, {
+        fetch(`http://localhost:5000/users/admin`, {
             method:'PUT',
             headers:{
                 'content-type':'application/json'
@@ -19,8 +21,14 @@ const MakeAdmin = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+          if(data.modifiedCount){
+            console.log(data)
+            // setEmail('')
+            setSuccess(true)
+          }
+            
         })
+       
         e.preventDefault()
     }
     return (
@@ -43,6 +51,8 @@ const MakeAdmin = () => {
             </FloatingLabel>
             <Button className="w-100" type="submit">Submit</Button>
             </Form>
+
+            {success && <h3 className="mt-4 text-white fw-bold bg-success bg-opacity-75 rounded-3 py-2">Admin Created Successfully !!!</h3> }
           </Col>
         </Row>
       </Container>
