@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import AllReviews from "../../Dashboard/AllReviews/AllReviews";
 import Banner from "../Banner/Banner";
 import Products from "../Products/Products";
 
@@ -15,7 +16,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div>
+      <Container>
         <div className="text-center text-danger my-5">
           <h3 className="">FEATURED PRODUCTS</h3>
           {purchaseSuccess && <h3> Sunglass Booked SuccessFully!</h3>}
@@ -23,7 +24,8 @@ const Home = () => {
         <Row xs={1} md={3} className="g-4">
           {products.map((pd) => <Products key={pd._id} pd={pd} setPurchaseSuccess={setPurchaseSuccess}></Products>).slice(0, 6)}
         </Row>
-      </div>
+        <AllReviews></AllReviews>
+      </Container>
     </div>
   );
 };

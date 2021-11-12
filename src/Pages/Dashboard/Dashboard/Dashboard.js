@@ -13,6 +13,7 @@ import {
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AddProduct from "../AddProduct/AddProduct";
+import AddReview from "../AddReview/AddReview";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import ManageProducts from "../ManageProducts/ManageProducts";
@@ -48,7 +49,7 @@ const Dashboard = () => {
               <Link className="text-black text-decoration-none fw-bold" to={`${url}/payment`}>Pay</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link4">
-              <Link className="text-black text-decoration-none fw-bold" to={`${url}/makeAdmin`}>Reviews</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}/addReview`}>Add Review</Link>
             </ListGroup.Item>
 
             {/* Admin Area */}
@@ -85,6 +86,9 @@ const Dashboard = () => {
         </AdminRoute>
         <AdminRoute path={`${path}/manageProducts`}>
           <ManageProducts/>
+        </AdminRoute>
+        <AdminRoute path={`${path}/addReview`}>
+          <AddReview/>
         </AdminRoute>
         <Route path={`${path}/payment`}>
           <Pay/>
