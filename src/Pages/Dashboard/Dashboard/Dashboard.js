@@ -46,7 +46,7 @@ const Dashboard = () => {
               <Link className="text-black text-decoration-none fw-bold" to="/home">Home</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link2">
-              <Link className="text-black text-decoration-none fw-bold" to={`${url}`}>Dashboard</Link>
+              <Link className="text-black text-decoration-none fw-bold" to={`${url}`}>My Orders</Link>
             </ListGroup.Item>
             <ListGroup.Item action href="#link3">
               <Link className="text-black text-decoration-none fw-bold" to={`${url}/payment`}>Pay</Link>
