@@ -1,3 +1,5 @@
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import {
   Offcanvas,
@@ -22,7 +24,7 @@ import Pay from "../Pay/Pay";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
-  const {admin} = useAuth()
+  const {admin, logOut} = useAuth()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -71,7 +73,9 @@ const Dashboard = () => {
               </div>
             }
           </ListGroup>
-
+          <div className="d-flex justify-content-center mt-5 pe-3">
+          <Button className="ms-3 text-white fw-bold" variant="danger" onClick={logOut}><FontAwesomeIcon icon={faSignOutAlt}/>  Log Out</Button>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
 

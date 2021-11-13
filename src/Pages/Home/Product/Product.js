@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import Products from "../Products/Products";
 
+// Product section
+
 const Product = () => {
   // const {user} = useAuth()
   const [products, setProducts] = useState([]);
@@ -15,7 +17,7 @@ const Product = () => {
     <div>
       <div className="text-center text-danger my-5">
         <h3 className="">All PRODUCTS</h3>
-        {purchaseSuccess && <h3> Sunglass Booked SuccessFully!</h3>}
+        {purchaseSuccess && <h3 className="bg-success text-white bg-opacity-75 w-50 mx-auto py-3 rounded-3"> Sunglass Booked SuccessFully!</h3>}
       </div>
 
 

@@ -1,0 +1,8 @@
+.product-image:hover{
+    -webkit-transform: scaleX(-1) !important;
+    transform: scaleX(-1) !important;
+}
+.product-body:hover{
+    color: white;
+    background-color: palevioletred;
+}

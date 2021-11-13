@@ -7,7 +7,7 @@ const DashboardHome = () => {
         <Container>
         <Row md={1}>
           <Col className="text-center">
-            <h1>Hello From Dashboard</h1>
+            <h1 className="text-danger mb-4">Welcome To Your Dashboard</h1>
             <Orders></Orders>
           </Col>
         </Row>

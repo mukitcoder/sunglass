@@ -11,6 +11,8 @@ import {
   updateProfile
 } from "firebase/auth";
 
+// For Use FireBase registration login logout
+
 initializeFirebase();
 const useFirebase = () => {
   const [user, setUser] = useState({});

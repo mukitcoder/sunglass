@@ -1,8 +1,13 @@
+import { faShoppingCart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Purchase from "../../Purchase/Purchase";
+import './Products.css'
+
+// Products Section
 
 const Products = ({ pd, setPurchaseSuccess }) => {
   const { name, price, description, img } = pd;
@@ -15,21 +20,24 @@ const Products = ({ pd, setPurchaseSuccess }) => {
   return (
     <div>
       <Col>
-        <Card>
+        <Card className="product-card">
+          <span className="product-image">
           <Card.Img height="250px" variant="top" src={img} />
-          <Card.Body>
-            <Card.Title> {name} </Card.Title>
-            <Card.Title>Price: ${price} </Card.Title>
-            <Card.Text>{description}</Card.Text>
+          </span>
+          <Card.Body className="product-body">
+            <Card.Title className="fs-4 product-title"> {name} </Card.Title>
+            <Card.Title className="product-price">Price: ${price} </Card.Title>
+            <Card.Text className="lead product-description">{description}</Card.Text>
+            <Card.Text className="text-warning"><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/></Card.Text>
           </Card.Body>
           
           {
               user?.email?<Button
               onClick={handlePurchaseShow}
-              className="w-100"
+              className="w-100 fw-bold"
               variant="warning"
             >
-              Buy Now
+              <FontAwesomeIcon className="me-2" icon={faShoppingCart}/> Buy Now
             </Button>:<Link to="/login"><Button
               onClick={handlePurchaseShow}
               className="w-100"

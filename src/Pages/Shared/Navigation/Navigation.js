@@ -1,3 +1,5 @@
+import { faSignInAlt, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
@@ -47,10 +49,10 @@ const Navigation = () => {
               <span className="text-warning fw-bold">{user.displayName}</span>
             </div>
             {user?.email ? (
-              <Button className="ms-3 text-danger fw-bold" variant="warning" size="sm" onClick={logOut}>Log Out</Button>
+              <Button className="ms-3 text-danger fw-bold" variant="warning" size="sm" onClick={logOut}><FontAwesomeIcon icon={faSignOutAlt}/>  Log Out</Button>
             ) : (
               <Link to="/login">
-                <Button className="ms-3 text-white fw-bold" variant="success" size="sm" >Log In</Button>
+                <Button className="ms-3 text-white fw-bold" variant="success" size="sm" ><FontAwesomeIcon className="me-3" icon={faSignInAlt}/>Log In</Button>
               </Link>
             )}
           </Nav>
