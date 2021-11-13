@@ -7,14 +7,14 @@ const Orders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/purchase?email=${user.email}`;
+    const url = `https://hidden-basin-03669.herokuapp.com/purchase?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [user.email]);
 
   const handleDelete = (id)=>{
-    const url = `http://localhost:5000/purchase/${id}`
+    const url = `https://hidden-basin-03669.herokuapp.com/purchase/${id}`
     fetch(url, {
       method:'DELETE'
     })

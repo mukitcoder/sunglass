@@ -4,13 +4,13 @@ import { Table, Button, Container } from 'react-bootstrap';
 const ManageAllOrders = () => {
     const [manageOrders, setManageOrders] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/purchase`)
+        fetch(`https://hidden-basin-03669.herokuapp.com/purchase`)
         .then(res=>res.json())
         .then(data=>setManageOrders(data))
     },[])
 
     const handleDelete = (id)=>{
-        const url = `http://localhost:5000/purchase/${id}`
+        const url = `https://hidden-basin-03669.herokuapp.com/purchase/${id}`
         fetch(url, {
           method:'DELETE'
         })

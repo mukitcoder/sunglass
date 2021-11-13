@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/addProducts`, {
+    fetch(`https://hidden-basin-03669.herokuapp.com/addProducts`, {
       method:'POST',
       headers:{
         'content-type':'application/json'

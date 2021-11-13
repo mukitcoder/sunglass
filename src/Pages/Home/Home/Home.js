@@ -13,7 +13,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [purchaseSuccess, setPurchaseSuccess] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/allProducts`)
+    fetch(`https://hidden-basin-03669.herokuapp.com/allProducts`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

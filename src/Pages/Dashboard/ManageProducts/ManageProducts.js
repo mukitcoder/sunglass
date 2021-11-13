@@ -5,13 +5,13 @@ const ManageProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allProducts`)
+    fetch(`https://hidden-basin-03669.herokuapp.com/allProducts`)
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, []);
 
   const handleDelete = (id)=>{
-    const url = `http://localhost:5000/allProducts/${id}`
+    const url = `https://hidden-basin-03669.herokuapp.com/allProducts/${id}`
     fetch(url, {
       method:'DELETE'
     })

@@ -4,7 +4,7 @@ import Rating from "react-rating";
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/allReviews`)
+    fetch(`https://hidden-basin-03669.herokuapp.com/allReviews`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
